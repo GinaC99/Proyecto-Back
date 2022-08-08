@@ -1,31 +1,35 @@
-const fs = require('fs')
+const productos = require('./productos')
+
 
 class Contenedor {
-    constructor() {
-        this.ruta = `./productos.txt`;
-    }
     async save(Objeto) {
-        try {
-            let producto = []
-            try {
-                const archivo = await fs.promises.readFile(this.ruta)
-                producto = JSON.parse(archivo)
-            } catch (e) {
-                const archivo = await fs.promises.writeFile(this.ruta, '')
-            }
-            const getAllData = await this.getAll()
-            try {
-                Objeto.id = parseInt(getAllData[getAllData.length - 1].id) + 1
-            } catch {
-                Objeto.id = 1
-            }
-            Objeto.timestamp = new Date()
-            producto.push(Objeto)
-            await fs.promises.writeFile(this.ruta, JSON.stringify(producto))
-            return (Objeto.id)
-        } catch (e) {
-            console.log('Hey, no se pudo guardar el documento de manera correcta, mira este es el error', e)
+        try{
+
+        } catch (e){
+            console.error(e)
         }
+
+        // try {
+        //     let producto = []
+        //     try {
+        //         const archivo = await fs.promises.readFile(this.ruta)
+        //         producto = JSON.parse(archivo)
+        //     } catch (e) {
+        //         const archivo = await fs.promises.writeFile(this.ruta, '')
+        //     }
+        //     const getAllData = await this.getAll()
+        //     try {
+        //         Objeto.id = parseInt(getAllData[getAllData.length - 1].id) + 1
+        //     } catch {
+        //         Objeto.id = 1
+        //     }
+        //     Objeto.timestamp = new Date()
+        //     producto.push(Objeto)
+        //     await fs.promises.writeFile(this.ruta, JSON.stringify(producto))
+        //     return (Objeto.id)
+        // } catch (e) {
+        //     console.log('Hey, no se pudo guardar el documento de manera correcta, mira este es el error', e)
+        // }
     }
     async getById(id) {
         try {

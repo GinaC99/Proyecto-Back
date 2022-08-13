@@ -1,5 +1,5 @@
 const express = require('express')
-const { Contenedor } = require('../API/carrtitoactions.js')
+const Contenedor = require('../DB/CRUDCarritos')
 
 const CarritoCompras = express();
 const Carrito = new Contenedor()
@@ -43,12 +43,6 @@ CarritoCompras.post('/:id/productos', (req, res) => {
     const id = req.params.id
     const body = req.body
     const data = Carrito.postSave(id, body)
-    res.send(data)
-})
-
-CarritoCompras.delete('/:idcarr/productos/:idProduc', (req, res) => {
-    const { idcarr, idProduc } = req.params
-    const data = Carrito.deleteByIdProd(idcarr, idProduc)
     res.send(data)
 })
 

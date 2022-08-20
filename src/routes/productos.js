@@ -1,5 +1,5 @@
 const express = require('express')
-const Contenedor = require('../DB/CRUDproductos');
+const Contenedor = require('./../DAOS/productosDaos')
 
 const Products = express();
 const ApiProducts = new Contenedor()
@@ -7,7 +7,7 @@ const ApiProducts = new Contenedor()
 Products.get('/:id?', async (req, res) => {
     console.log('Hey esta en el get de los productos')
     const answerData = await ApiProducts.getAll();
-    res.send(answerData)
+    res.status(200).send(answerData)
 })
 
 Products.post('/', (req, res) => {

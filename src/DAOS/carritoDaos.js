@@ -7,4 +7,4 @@ class carritoDaos extends carritoActions {
     }
 }
 
-export { carritoDaos };
+module.exports = carritoDaos;

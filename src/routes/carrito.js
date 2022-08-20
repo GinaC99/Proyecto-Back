@@ -1,5 +1,5 @@
 const express = require('express')
-const Contenedor = require('../DB/CRUDCarritos')
+const Contenedor = require('./../DAOS/carritoDaos')
 
 const CarritoCompras = express();
 const Carrito = new Contenedor()

@@ -23,7 +23,7 @@ class ContenedorCar {
             console.warn('Esta en la creacion de un nuevo Carrito')
             const Carrito = new carrito(Objeto)
             const response = await Carrito.save()
-            console.log(response)
+            return (response)
         } catch (e) {
             console.error(e)
         }
@@ -32,7 +32,7 @@ class ContenedorCar {
         try {
             console.warn('Esta en la obtencion de todos los carritos')
             const AllData = await carrito.find({})
-            console.log(AllData)
+            return (AllData)
 
         } catch (e) {
             console.error(e)
@@ -41,7 +41,7 @@ class ContenedorCar {
     async getById(id) {
         try {
             const getID = await carrito.find({ _id: id })
-            console.log(getID)
+            return (getID)
         } catch (e) {
             console.error(e)
         }
@@ -50,7 +50,7 @@ class ContenedorCar {
         try {
             console.warn('Esta es la eliminacion de un carrito por ID')
             const deleteById = await carrito.deleteOne({ _id: id })
-            console.log(deleteById)
+            return (deleteById)
         } catch (e) {
             console.error(e)
         }
@@ -59,7 +59,7 @@ class ContenedorCar {
         try {
             console.warn('Esta en la eliminacon de todos los carrito')
             const deleteAll = await carrito.deleteMany({})
-            console.log(deleteAll)
+            return (deleteAll)
         } catch (e) {
             console.error(e)
         }
@@ -68,7 +68,7 @@ class ContenedorCar {
         try {
             console.warn('Actualizacion de un producto en un carrito')
             const CarritoUpdate = await carrito.findOneAndUpdate({ _id: id }, { productos: body }, { new: true },)
-            console.log(CarritoUpdate)
+            return (CarritoUpdate)
         } catch (e) {
             console.error(e)
         }

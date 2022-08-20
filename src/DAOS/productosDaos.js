@@ -7,4 +7,4 @@ class productsDaos extends productsActions {
     }
 }
 
-export { productsDaos };
+module.exports= productsDaos;
